@@ -39,10 +39,10 @@ class MainLayoutWidget extends StatelessWidget {
                   // Adjust the spacing between buttons
                   ElevatedButton(
                     onPressed: () {
-                      // Navigate or perform action for the second button
+                      context.router.push(ExcursionRoute());
                     },
                     child: Text(
-                      'Button 2',
+                      'Экскурсии',
                       style: TextStyle(fontSize: 30),
                     ),
                   ),

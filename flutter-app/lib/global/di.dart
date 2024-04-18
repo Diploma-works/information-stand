@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:information_stand/app/routes/app_router.dart';
 import 'package:information_stand/features/currency/services/clients/currency_client.dart';
+import 'package:information_stand/features/excursion/presentation/excursion_info_page/services/client/excursion_client.dart';
+import 'package:information_stand/features/excursion/services/client/excursion_client.dart';
 import 'package:information_stand/features/license/services/clients/license_client.dart';
 import 'package:information_stand/features/weather/services/clients/weather_client.dart';
 import 'package:information_stand/global/global.dart';
@@ -19,8 +21,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'di.config.dart';
 import '../services/log_service/const/log_service_const.dart';
 import 'package:information_stand/features/license/const/license_const.dart';
+import 'package:information_stand/features/excursion/const/excursion_const.dart';
 import 'package:information_stand/features/weather/const/weather_const.dart';
 import 'package:information_stand/features/currency/const/currency_const.dart';
+import 'package:information_stand/features/excursion/presentation/excursion_info_page/const/excursion_info_const.dart';
 
 final getIt = GetIt.instance;
 
@@ -70,6 +74,14 @@ abstract class AppModule {
   @CurrencyConst.currencyClient
   Dio currencyClient(@LogServiceConst.console Log log) =>
       createCurrencyClient(log);
+
+  @ExcursionConst.excursionClient
+  Dio excursionClient(@LogServiceConst.console Log log) =>
+      createExcursionClient(log);
+
+  @ExcursionInfoConst.excursionInfoClient
+  Dio excursionInfoClient(@LogServiceConst.console Log log) =>
+      createExcursionInfoClient(log);
 
   @singleton
   Future<SharedPreferences> sharedPrefStorage() async =>

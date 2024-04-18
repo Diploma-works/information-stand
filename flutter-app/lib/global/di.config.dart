@@ -13,13 +13,21 @@ import 'package:flutter/services.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:information_stand/app/routes/app_router.dart' as _i3;
 import 'package:information_stand/features/currency/services/currency_service/currency_service/currency_service.dart'
-    as _i30;
+    as _i34;
 import 'package:information_stand/features/currency/services/currency_service/currency_service_interface.dart'
-    as _i29;
-import 'package:information_stand/features/license/services/license_service/license_service/license_service.dart'
+    as _i33;
+import 'package:information_stand/features/excursion/presentation/excursion_info_page/services/excursion_info_service/excursion_info_service/excursion_info_service.dart'
     as _i26;
-import 'package:information_stand/features/license/services/license_service/license_service_interface.dart'
+import 'package:information_stand/features/excursion/presentation/excursion_info_page/services/excursion_info_service/excursion_info_service_interface.dart'
     as _i25;
+import 'package:information_stand/features/excursion/services/excursion_service/excursion_service/excursion_service.dart'
+    as _i28;
+import 'package:information_stand/features/excursion/services/excursion_service/excursion_service_interface.dart'
+    as _i27;
+import 'package:information_stand/features/license/services/license_service/license_service/license_service.dart'
+    as _i30;
+import 'package:information_stand/features/license/services/license_service/license_service_interface.dart'
+    as _i29;
 import 'package:information_stand/features/settings/config/services/config_service.dart'
     as _i22;
 import 'package:information_stand/features/settings/config/services/config_storage/config_storage.dart'
@@ -27,10 +35,10 @@ import 'package:information_stand/features/settings/config/services/config_stora
 import 'package:information_stand/features/settings/config/services/main_config_service/main_config_service.dart'
     as _i23;
 import 'package:information_stand/features/weather/services/weather_service/weather_service/weather_service.dart'
-    as _i28;
+    as _i32;
 import 'package:information_stand/features/weather/services/weather_service/weather_service_interface.dart'
-    as _i27;
-import 'package:information_stand/global/di.dart' as _i31;
+    as _i31;
+import 'package:information_stand/global/di.dart' as _i35;
 import 'package:information_stand/services/file_service/app_file_service/app_file_service.dart'
     as _i21;
 import 'package:information_stand/services/file_service/file_service.dart'
@@ -110,10 +118,6 @@ extension GetItInjectableX on _i1.GetIt {
     gh.singletonAsync<_i22.ConfigService>(() async =>
         _i23.MainConfigService(await getAsync<_i12.ConfigStorage>()));
     gh.factory<_i24.Dio>(
-      () => appModule.licenseClient(gh<_i15.Log>(instanceName: 'console')),
-      instanceName: 'licenseClient',
-    );
-    gh.factory<_i24.Dio>(
       () => appModule.weatherClient(gh<_i15.Log>(instanceName: 'console')),
       instanceName: 'weatherClient',
     );
@@ -121,14 +125,31 @@ extension GetItInjectableX on _i1.GetIt {
       () => appModule.currencyClient(gh<_i15.Log>(instanceName: 'console')),
       instanceName: 'currencyClient',
     );
-    gh.singleton<_i25.LicenseServiceInterface>(
-        _i26.LicenseService(gh<_i24.Dio>(instanceName: 'licenseClient')));
-    gh.singleton<_i27.WeatherServiceInterface>(
-        _i28.WeatherService(gh<_i24.Dio>(instanceName: 'weatherClient')));
-    gh.singleton<_i29.CurrencyServiceInterface>(
-        _i30.CurrencyService(gh<_i24.Dio>(instanceName: 'currencyClient')));
+    gh.factory<_i24.Dio>(
+      () => appModule.excursionClient(gh<_i15.Log>(instanceName: 'console')),
+      instanceName: 'excursionClient',
+    );
+    gh.factory<_i24.Dio>(
+      () =>
+          appModule.excursionInfoClient(gh<_i15.Log>(instanceName: 'console')),
+      instanceName: 'excursionInfoClient',
+    );
+    gh.factory<_i24.Dio>(
+      () => appModule.licenseClient(gh<_i15.Log>(instanceName: 'console')),
+      instanceName: 'licenseClient',
+    );
+    gh.singleton<_i25.ExcursionInfoServiceInterface>(_i26.ExcursionService(
+        gh<_i24.Dio>(instanceName: 'excursionInfoClient')));
+    gh.singleton<_i27.ExcursionServiceInterface>(
+        _i28.ExcursionService(gh<_i24.Dio>(instanceName: 'excursionClient')));
+    gh.singleton<_i29.LicenseServiceInterface>(
+        _i30.LicenseService(gh<_i24.Dio>(instanceName: 'licenseClient')));
+    gh.singleton<_i31.WeatherServiceInterface>(
+        _i32.WeatherService(gh<_i24.Dio>(instanceName: 'weatherClient')));
+    gh.singleton<_i33.CurrencyServiceInterface>(
+        _i34.CurrencyService(gh<_i24.Dio>(instanceName: 'currencyClient')));
     return this;
   }
 }
 
-class _$AppModule extends _i31.AppModule {}
+class _$AppModule extends _i35.AppModule {}

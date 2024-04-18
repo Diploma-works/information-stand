@@ -41,6 +41,23 @@ abstract class _$AppRouter extends RootStackRouter {
         child: CurrencyPage(key: args.key),
       );
     },
+    ExcursionInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<ExcursionInfoRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExcursionInfoPage(
+          key: args.key,
+          excursion: args.excursion,
+          refresh: args.refresh,
+        ),
+      );
+    },
+    ExcursionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ExcursionPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -156,6 +173,63 @@ class CurrencyRouteArgs {
   String toString() {
     return 'CurrencyRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [ExcursionInfoPage]
+class ExcursionInfoRoute extends PageRouteInfo<ExcursionInfoRouteArgs> {
+  ExcursionInfoRoute({
+    Key? key,
+    required Excursion excursion,
+    required dynamic Function(Excursion) refresh,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ExcursionInfoRoute.name,
+          args: ExcursionInfoRouteArgs(
+            key: key,
+            excursion: excursion,
+            refresh: refresh,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ExcursionInfoRoute';
+
+  static const PageInfo<ExcursionInfoRouteArgs> page =
+      PageInfo<ExcursionInfoRouteArgs>(name);
+}
+
+class ExcursionInfoRouteArgs {
+  const ExcursionInfoRouteArgs({
+    this.key,
+    required this.excursion,
+    required this.refresh,
+  });
+
+  final Key? key;
+
+  final Excursion excursion;
+
+  final dynamic Function(Excursion) refresh;
+
+  @override
+  String toString() {
+    return 'ExcursionInfoRouteArgs{key: $key, excursion: $excursion, refresh: $refresh}';
+  }
+}
+
+/// generated route for
+/// [ExcursionPage]
+class ExcursionRoute extends PageRouteInfo<void> {
+  const ExcursionRoute({List<PageRouteInfo>? children})
+      : super(
+          ExcursionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ExcursionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

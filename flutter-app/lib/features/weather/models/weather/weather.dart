@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:information_stand/features/weather/models/weather/main.dart';
 
 part 'weather.freezed.dart';
 part 'weather.g.dart';

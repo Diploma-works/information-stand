@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:information_stand/app/routes/guards/ImeiGuard.dart';
 import 'package:information_stand/app/routes/guards/assets_guard.dart';
 import 'package:information_stand/features/currency/presentation/currency_page/currency_page.dart';
+import 'package:information_stand/features/excursion/models/excursion.dart';
+import 'package:information_stand/features/excursion/presentation/excursion_info_page/presentation/excursion_info_page.dart';
+import 'package:information_stand/features/excursion/presentation/excursion_page.dart';
 import 'package:information_stand/features/home/presentation/home_page/home_page.dart';
 import 'package:information_stand/features/license/presentation/loading_page/loading_page.dart';
 import 'package:information_stand/features/license/services/license_service/license_service_interface.dart';
@@ -72,6 +75,12 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: CurrencyRoute.page,
+        ),
+        AutoRoute(
+          page: ExcursionRoute.page,
+        ),
+        AutoRoute(
+          page: ExcursionInfoRoute.page,
         ),
       ];
 }
