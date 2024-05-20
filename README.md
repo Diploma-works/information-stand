@@ -31,7 +31,7 @@ spring.jpa.hibernate.ddl-auto=none
 - password - пароль СУБД
 - appname - идентификатор приложения, в котоом будет использоваться API
 
-##Mobile-app
+## Mobile-app
 
 - Убедитесь, что у вас установлен Flutter SDK.
     - Настройте базовый URL для API в файле `lib/consts.dart`.
