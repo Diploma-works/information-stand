@@ -7,11 +7,11 @@ part of 'excursion.dart';
 // **************************************************************************
 
 _$_Excursion _$$_ExcursionFromJson(Map<String, dynamic> json) => _$_Excursion(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       description: json['description'] as String,
       location: json['location'] as String,
-      duration: json['duration'] as int,
+      duration: (json['duration'] as num).toInt(),
       cost: (json['cost'] as num).toDouble(),
       startTime: json['startTime'] as String,
       endTime: json['endTime'] as String,
@@ -19,7 +19,7 @@ _$_Excursion _$$_ExcursionFromJson(Map<String, dynamic> json) => _$_Excursion(
       reservedMembers: (json['reservedMembers'] as List<dynamic>)
           .map((e) => ReservedMember.fromJson(e as Map<String, dynamic>))
           .toList(),
-      maxParticipants: json['maxParticipants'] as int,
+      maxParticipants: (json['maxParticipants'] as num).toInt(),
       base64Image: json['base64Image'] as String,
     );
 

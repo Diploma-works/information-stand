@@ -17,26 +17,21 @@ public class ExcursionService {
     private final ExcursionRepository excursionRepository;
 
     public boolean addExcursion(ExcursionCreateRequest request) {
-        try {
-            Excursion excursion = Excursion.builder()
-                    .name(request.getName())
-                    .description(request.getDescription())
-                    .location(request.getLocation())
-                    .cost(request.getCost())
-                    .duration(request.getDuration())
-                    .endTime(request.getEndTime())
-                    .startTime(request.getStartTime())
-                    .maxParticipants(request.getMaxParticipants())
-                    .reservedMembers("")
-                    .rating(0)
-                    .base64Image(request.getBase64Image())
-                    .build();
-            excursionRepository.save(excursion);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        Excursion excursion = Excursion.builder()
+                .name(request.getName())
+                .description(request.getDescription())
+                .location(request.getLocation())
+                .cost(request.getCost())
+                .duration(request.getDuration())
+                .endTime(request.getEndTime())
+                .startTime(request.getStartTime())
+                .maxParticipants(request.getMaxParticipants())
+                .reservedMembers("")
+                .rating(0)
+                .base64Image(request.getBase64Image())
+                .build();
+        excursionRepository.save(excursion);
+        return true;
     }
 
     public List<ExcursionDTO> getAllExcursionFromDateNowByLocation(String city) {
@@ -62,8 +57,8 @@ public class ExcursionService {
             return result;
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
-        return null;
     }
 
 }

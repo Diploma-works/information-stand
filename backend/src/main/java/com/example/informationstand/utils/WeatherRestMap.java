@@ -26,8 +26,6 @@ public class WeatherRestMap {
 
     @Value("${api.weather}")
     private String apiUri;
-
-    //получение текущей погоды
     public WeatherResponse getNowWeather(String city) {
         try {
             return restTemplate.getForObject(apiUri
@@ -39,7 +37,6 @@ public class WeatherRestMap {
         }
     }
 
-    //проверка существования города
     public boolean isCity(String city) throws IOException {
 
         URL weatherApiUrl = new URL(apiUri.replace("{city}", city));

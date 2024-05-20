@@ -87,6 +87,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainLayoutSettingsScreen(),
       );
     },
+    PlacesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PlacesPage(),
+      );
+    },
     SettingsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -313,6 +319,20 @@ class MainLayoutSettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MainLayoutSettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PlacesPage]
+class PlacesRoute extends PageRouteInfo<void> {
+  const PlacesRoute({List<PageRouteInfo>? children})
+      : super(
+          PlacesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PlacesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

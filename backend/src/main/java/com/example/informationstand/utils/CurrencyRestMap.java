@@ -1,7 +1,6 @@
 package com.example.informationstand.utils;
 
 import com.example.informationstand.models.currency.CurrencyData;
-import com.example.informationstand.models.weather.WeatherNow;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

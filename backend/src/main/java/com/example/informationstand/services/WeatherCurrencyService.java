@@ -16,10 +16,6 @@ public class WeatherCurrencyService {
     private final WeatherRestMap weatherRestMap;
     private final CurrencyRestMap currencyRestMap;
 
-    public boolean isCity(String city) throws IOException {
-        return weatherRestMap.isCity(city);
-    }
-
     public WeatherResponse getCurrentWeather(String city) {
         return weatherRestMap.getTenForecasts(city);
     }

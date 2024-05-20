@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "excursions")
@@ -29,22 +28,7 @@ public class Excursion {
     private int maxParticipants;
     @Column(name = "base64Image")
     private String base64Image;
-
-    @Override
-    public String toString() {
-        return "Excursion{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", location='" + location + '\'' +
-                ", duration=" + duration +
-                ", cost=" + cost +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", rating=" + rating +
-                ", reservedMembers='" + reservedMembers + '\'' +
-                ", maxParticipants=" + maxParticipants +
-                ", base64Image='" + base64Image + '\'' +
-                '}';
+    public Excursion(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
     }
 }

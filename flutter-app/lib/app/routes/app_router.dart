@@ -9,6 +9,7 @@ import 'package:information_stand/features/excursion/presentation/excursion_page
 import 'package:information_stand/features/home/presentation/home_page/home_page.dart';
 import 'package:information_stand/features/license/presentation/loading_page/loading_page.dart';
 import 'package:information_stand/features/license/services/license_service/license_service_interface.dart';
+import 'package:information_stand/features/places/presentation/places_page.dart';
 import 'package:information_stand/features/settings/config/presentation/config_page/config_page.dart';
 import 'package:information_stand/features/settings/config/presentation/config_page/pages/appearance_page/appearance_page.dart';
 import 'package:information_stand/features/settings/config/presentation/config_page/pages/appearance_page/main_layout_settings/main_layout_settings_screen.dart';
@@ -81,6 +82,9 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: ExcursionInfoRoute.page,
+        ),
+        AutoRoute(
+          page: PlacesRoute.page,
         ),
       ];
 }

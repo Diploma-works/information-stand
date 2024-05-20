@@ -10,7 +10,7 @@ _$_Currency _$$_CurrencyFromJson(Map<String, dynamic> json) => _$_Currency(
       ID: json['ID'] as String,
       NumCode: json['NumCode'] as String,
       CharCode: json['CharCode'] as String,
-      Nominal: json['Nominal'] as int,
+      Nominal: (json['Nominal'] as num).toInt(),
       Name: json['Name'] as String,
       Value: (json['Value'] as num).toDouble(),
       Previous: (json['Previous'] as num).toDouble(),

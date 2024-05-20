@@ -8,6 +8,7 @@ import 'package:information_stand/features/currency/services/clients/currency_cl
 import 'package:information_stand/features/excursion/presentation/excursion_info_page/services/client/excursion_client.dart';
 import 'package:information_stand/features/excursion/services/client/excursion_client.dart';
 import 'package:information_stand/features/license/services/clients/license_client.dart';
+import 'package:information_stand/features/places/services/client/places_client.dart';
 import 'package:information_stand/features/weather/services/clients/weather_client.dart';
 import 'package:information_stand/global/global.dart';
 import 'package:information_stand/services/file_service/file_service.dart';
@@ -24,6 +25,7 @@ import 'package:information_stand/features/license/const/license_const.dart';
 import 'package:information_stand/features/excursion/const/excursion_const.dart';
 import 'package:information_stand/features/weather/const/weather_const.dart';
 import 'package:information_stand/features/currency/const/currency_const.dart';
+import 'package:information_stand/features/places/const/places_const.dart';
 import 'package:information_stand/features/excursion/presentation/excursion_info_page/const/excursion_info_const.dart';
 
 final getIt = GetIt.instance;
@@ -78,6 +80,10 @@ abstract class AppModule {
   @ExcursionConst.excursionClient
   Dio excursionClient(@LogServiceConst.console Log log) =>
       createExcursionClient(log);
+
+  @PlacesConst.placesClient
+  Dio placesClient(@LogServiceConst.console Log log) =>
+      createPlacesClient(log);
 
   @ExcursionInfoConst.excursionInfoClient
   Dio excursionInfoClient(@LogServiceConst.console Log log) =>

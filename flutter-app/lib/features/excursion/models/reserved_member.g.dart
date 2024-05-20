@@ -9,7 +9,7 @@ part of 'reserved_member.dart';
 _$_ReservedMember _$$_ReservedMemberFromJson(Map<String, dynamic> json) =>
     _$_ReservedMember(
       credentials: json['credentials'] as String,
-      count: json['count'] as int,
+      count: (json['count'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$_ReservedMemberToJson(_$_ReservedMember instance) =>

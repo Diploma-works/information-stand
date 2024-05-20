@@ -28,10 +28,10 @@ class MainLayoutWidget extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      // Navigate or perform action for the first button
+                      context.router.push(PlacesRoute());
                     },
                     child: Text(
-                      'Button 1',
+                      'Места города',
                       style: TextStyle(fontSize: 30),
                     ),
                   ),

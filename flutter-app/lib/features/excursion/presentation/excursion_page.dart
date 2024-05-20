@@ -34,8 +34,6 @@ class ExcursionPage extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  print(snapshot.error);
-                  print(snapshot.stackTrace);
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else {
                   return Container(

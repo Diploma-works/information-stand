@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1251"> 
+  <title>Coverage Report > ExcursionMapper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.informationstand.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: ExcursionMapper (com.example.informationstand.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExcursionMapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    97%
+  </span>
+  <span class="absValue">
+    (32/33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.informationstand.utils;
+&nbsp;
+&nbsp;import com.example.informationstand.models.еxcursion.Excursion;
+&nbsp;import com.example.informationstand.models.еxcursion.ExcursionDTO;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+<b class="nc">&nbsp;public class ExcursionMapper {</b>
+<b class="fc">&nbsp;    private static final ExcursionConverter converter = new ExcursionConverter();</b>
+&nbsp;
+&nbsp;    public static ExcursionDTO toDTO(Excursion excursion) {
+<b class="fc">&nbsp;        return ExcursionDTO.builder()</b>
+<b class="fc">&nbsp;                .id(excursion.getId())</b>
+<b class="fc">&nbsp;                .location(excursion.getLocation())</b>
+<b class="fc">&nbsp;                .description(excursion.getDescription())</b>
+<b class="fc">&nbsp;                .cost(excursion.getCost())</b>
+<b class="fc">&nbsp;                .duration(excursion.getDuration())</b>
+<b class="fc">&nbsp;                .endTime(excursion.getEndTime())</b>
+<b class="fc">&nbsp;                .startTime(excursion.getStartTime())</b>
+<b class="fc">&nbsp;                .maxParticipants(excursion.getMaxParticipants())</b>
+<b class="fc">&nbsp;                .rating(excursion.getRating())</b>
+<b class="fc">&nbsp;                .reservedMembers(converter.convertToEntityAttribute(excursion.getReservedMembers()))</b>
+<b class="fc">&nbsp;                .name(excursion.getName())</b>
+<b class="fc">&nbsp;                .base64Image(excursion.getBase64Image())</b>
+<b class="fc">&nbsp;                .build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static List&lt;ExcursionDTO&gt; toDTOList(List&lt;Excursion&gt; excursions) {
+<b class="fc">&nbsp;        return excursions.stream()</b>
+<b class="fc">&nbsp;                .map(ExcursionMapper::toDTO)</b>
+<b class="fc">&nbsp;                .collect(Collectors.toList());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Excursion toEntity(ExcursionDTO excursionDTO){
+&nbsp;        return Excursion
+<b class="fc">&nbsp;                .builder()</b>
+<b class="fc">&nbsp;                .id(excursionDTO.getId())</b>
+<b class="fc">&nbsp;                .name(excursionDTO.getName())</b>
+<b class="fc">&nbsp;                .cost(excursionDTO.getCost())</b>
+<b class="fc">&nbsp;                .rating(excursionDTO.getRating())</b>
+<b class="fc">&nbsp;                .description(excursionDTO.getDescription())</b>
+<b class="fc">&nbsp;                .reservedMembers(converter.convertToDatabaseColumn(excursionDTO.getReservedMembers()))</b>
+<b class="fc">&nbsp;                .location(excursionDTO.getLocation())</b>
+<b class="fc">&nbsp;                .startTime(excursionDTO.getStartTime())</b>
+<b class="fc">&nbsp;                .endTime(excursionDTO.getEndTime())</b>
+<b class="fc">&nbsp;                .duration(excursionDTO.getDuration())</b>
+<b class="fc">&nbsp;                .base64Image(excursionDTO.getBase64Image())</b>
+<b class="fc">&nbsp;                .maxParticipants(excursionDTO.getMaxParticipants())</b>
+<b class="fc">&nbsp;                .build();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-17 20:25</div>
+</div>
+</body>
+</html>
