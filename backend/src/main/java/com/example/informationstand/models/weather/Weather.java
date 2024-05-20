@@ -1,12 +1,12 @@
 package com.example.informationstand.models.weather;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
+@NoArgsConstructor
 public class Weather {
     private int id;
     private String main;
