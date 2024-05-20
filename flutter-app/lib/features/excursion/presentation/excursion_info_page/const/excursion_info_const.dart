@@ -1,7 +1,9 @@
 import 'package:injectable/injectable.dart';
 
+import '../../../../../consts.dart';
+
 class ExcursionInfoConst {
 
-  static const String baseUrl = 'http://192.168.1.101:8080';
+  static const String baseUrl = Consts.baseUrl;
   static const excursionInfoClient = Named('excursionInfoClient');
 }
